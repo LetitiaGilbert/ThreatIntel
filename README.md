@@ -51,7 +51,7 @@ pip install pandas numpy scikit-learn matplotlib seaborn
 ## Usage
 Place urls.csv in the project directory and run:
 ```bash
-python main.py
+python threat_intel.py
 ```
 The program trains the model, evaluates it, scans example URLs, and generates the output files.
 
