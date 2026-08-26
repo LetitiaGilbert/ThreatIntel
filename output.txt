@@ -1,0 +1,112 @@
+[+] Loading PhiUSIIL dataset...
+[+] Dataset size: 235,795 URLs
+
+[+] Class distribution:
+Benign       134850
+Malicious    100945
+Name: target, dtype: int64
+
+[+] Using 20,000 URLs for this experiment.
+
+[+] Extracting URL features...
+[+] Features extracted: 24
+
+Features:
+ - url_length
+ - hostname_length
+ - path_length
+ - query_length
+ - num_dots
+ - num_hyphens
+ - num_underscores
+ - num_slashes
+ - num_question_marks
+ - num_equals
+ - num_ampersands
+ - num_percent
+ - num_at
+ - num_digits
+ - num_letters
+ - digit_ratio
+ - uses_https
+ - is_ip_address
+ - num_subdomains
+ - num_query_params
+ - suspicious_word_count
+ - url_entropy
+ - long_hostname
+ - special_char_ratio
+
+[+] Training samples: 16000
+[+] Testing samples: 4000
+
+[+] Training Random Forest...
+[+] Model training complete.
+
+============================================================
+THREAT INTELLIGENCE MODEL RESULTS
+============================================================
+Accuracy : 0.9952
+Precision: 1.0000
+Recall   : 0.9888
+F1 Score : 0.9944
+ROC-AUC  : 0.9979
+
+Percentage format:
+Accuracy : 99.52%
+Precision: 100.00%
+Recall   : 98.88%
+F1 Score : 99.44%
+ROC-AUC  : 99.79%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Benign       0.99      1.00      1.00      2304
+   Malicious       1.00      0.99      0.99      1696
+
+    accuracy                           1.00      4000
+   macro avg       1.00      0.99      1.00      4000
+weighted avg       1.00      1.00      1.00      4000
+
+
+============================================================
+TOP THREAT INDICATORS
+============================================================
+        feature  importance
+     uses_https    0.430590
+    num_slashes    0.163095
+    path_length    0.158333
+     num_digits    0.048888
+    digit_ratio    0.041698
+     url_length    0.033894
+    url_entropy    0.026616
+hostname_length    0.022612
+    num_letters    0.020346
+ num_subdomains    0.015943
+
+============================================================
+THREAT INTELLIGENCE SCAN
+============================================================
+
+URL: https://www.google.com
+Threat Score: 1.42 / 100
+Severity: LOW
+
+URL: https://www.microsoft.com
+Threat Score: 0.33 / 100
+Severity: LOW
+
+URL: http://192.168.1.10/login
+Threat Score: 99.91 / 100
+Severity: CRITICAL
+
+URL: http://secure-login-account-verification.example.com/login
+Threat Score: 100.0 / 100
+Severity: CRITICAL
+
+[+] Results saved to threat_detection_results.csv
+[+] Confusion matrix saved to confusion_matrix.png
+[+] Feature importance saved to feature_importance.png
+
+[+] Project complete.
